@@ -1,12 +1,18 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './src/screens/Home/Home';
+import { ProfessorProvider } from './src/context/ProfessorContext';
+import { PostProvider } from './src/context/PostContext';
+import { AppRoutes } from './src/routes/routes';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <ProfessorProvider>
+        <PostProvider>
+          <AppRoutes />
+        </PostProvider>
+      </ProfessorProvider>
   );
 }
 
