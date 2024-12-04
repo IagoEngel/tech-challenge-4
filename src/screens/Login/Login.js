@@ -32,6 +32,7 @@ export default Login = ({ navigation }) => {
                         <Text>Senha: </Text>
                         <TextInput
                             style={styles.textInput}
+                            secureTextEntry={true}
                             value={senha}
                             onChange={(value) => {
                                 setSenha(value.nativeEvent.text);

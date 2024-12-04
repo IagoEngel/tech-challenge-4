@@ -7,8 +7,6 @@ export const PostProvider = ({ children }) => {
     const getAllPosts = async () => {
         const response = await fetch('https://tech-challenge-2-latest.onrender.com/posts');
         const json = await response.json();
-        console.log('json ==>', json);
-
 
         if (json) {
             setPosts(json);
@@ -49,19 +47,12 @@ export const PostProvider = ({ children }) => {
             body: JSON.stringify(post)
         });
 
-        console.log('createPost response ==>', response);
-        
-
         if (response?.status === 200) {
             await getAllPosts();
         }
     };
 
     const putPost = async (postId, token, post) => {
-        console.log('postId: ', postId);
-        console.log('token: ', token);
-        console.log('post: ', post);
-
         const response = await fetch(`https://tech-challenge-2-latest.onrender.com/posts/${postId}`, {
             mode: 'cors',
             method: 'PUT',
